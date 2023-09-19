@@ -29,10 +29,10 @@ jobs:
       # Runs a single command using the runners shell
       - name: Create and upload variable artifact
         id: upload-variable-artifact
-        run: echo "::set-output name=variable::${MY_VARIABLE}"
+        run: echo test >> test
 
       - name: Upload variable artifact
         uses: actions/upload-artifact@v2
         with:
-          name: variable-artifact
-          path: ${{ runner.workspace }}
+          name: artifact
+          path: test
