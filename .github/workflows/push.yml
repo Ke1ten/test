@@ -21,13 +21,7 @@ jobs:
       - name: Download variable artifact from Pipeline A
         uses: actions/download-artifact@v2
         with:
-          name: variable-artifact
-
-      - name: Read variable from artifact
-        id: read-variable
-        run: |
-          echo "::set-output name=variable::$(cat ${{ github.workspace }}/variable-artifact/variable)"
-        shell: bash
+          name: artifact
 
       - name: Use the variable
-        run: echo "The value of MY_VARIABLE is ${{ steps.read-variable.outputs.variable }}"
+        run: echo test
