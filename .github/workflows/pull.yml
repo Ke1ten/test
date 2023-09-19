@@ -10,11 +10,6 @@ on:
       - main
       - main2
       - prod
-    paths:
-      - uat
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -27,14 +22,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       # Runs a single command using the runners shell
       - name: Create and upload variable artifact
         id: upload-variable-artifact
-        run: echo test >> test
+        run: git branch
 
-      - name: Upload variable artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: artifact
-          path: test
