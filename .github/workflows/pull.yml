@@ -10,6 +10,8 @@ on:
       - main
       - main2
       - prod
+    paths:
+      - uat
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
