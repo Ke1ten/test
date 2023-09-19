@@ -4,11 +4,8 @@ name: push
 
 # Controls when the workflow will run
 on:
-  push:
-    branches:
-      - main
   workflow_run:
-    workflows: ["pull"]
+    workflows: [pull]
     types:
       - completed
 
