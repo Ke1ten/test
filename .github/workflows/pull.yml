@@ -33,10 +33,3 @@ jobs:
 
       - name: Run Part Step
         run: echo part
-
-# Define a matrix to allow manual selection of the job to run
-strategy:
-  matrix:
-    job:
-      - full
-      - part
