@@ -9,24 +9,13 @@ on:
       - main2
       - prod
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-    inputs:
-      job_to_run:
-        description: Select the job to run
-        required: true
-        default: full  # Replace with the job name you want to run by default
-        options:
-          - full   # Replace with your job names
-          - part        # Replace with your job names
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains two jobs: "full" and "part"
   full:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    environment: full
     steps:
       - uses: actions/checkout@v3
 
@@ -35,7 +24,7 @@ jobs:
 
   part:
     runs-on: ubuntu-latest
-
+    environment: part
     steps:
       - uses: actions/checkout@v3
 
