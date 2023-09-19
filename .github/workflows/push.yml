@@ -23,14 +23,16 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-
-      - name: Download artifact from Pipeline A
+      - name: Download variable artifact from Pipeline A
         uses: actions/download-artifact@v2
         with:
-          name: my-artifact
-          path: test.txt
-          
-      - name: cat
-        run: cat test.txt
+          name: variable-artifact
+
+      - name: Read variable from artifact
+        id: read-variable
+        run: |
+          echo "::set-output name=variable::$(cat ${{ github.workspace }}/variable-artifact/variable)"
+        shell: bash
+
+      - name: Use the variable
+        run: echo "The value of MY_VARIABLE is ${{ steps.read-variable.outputs.variable }}"
