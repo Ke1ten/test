@@ -30,7 +30,7 @@ jobs:
       - name: check branch
         run: |
           echo $GITHUB_HEAD_REF
-          if [ "$GITHUB_HEAD_REF" = "Ke1ten-patch-11" ]; then
+          if [ "$GITHUB_HEAD_REF" = "$DEV_CT" ]; then
             echo patch-11
           elif [ "$GITHUB_HEAD_REF" = "Ke1ten-patch-12" ]; then
             echo patch-12
