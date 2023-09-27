@@ -28,9 +28,12 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: check branch
+        env:
+          ANOTHER_VAR: SomeValue
         run: |
           echo $GITHUB_HEAD_REF
           echo $DEV_CT
+          echo $ANOTHER_VAR
           if [ "$GITHUB_HEAD_REF" = "$DEV_CT" ]; then
             echo patch-11
           elif [ "$GITHUB_HEAD_REF" = "Ke1ten-patch-12" ]; then
