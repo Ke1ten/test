@@ -27,12 +27,5 @@ jobs:
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
-      - name: Create and upload variable artifact
-        id: upload-variable-artifact
-        run: echo test >> test
-
-      - name: Upload variable artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: artifact
-          path: test
+      - name: check branch
+        run: echo $GITHUB_HEAD_REF
