@@ -28,4 +28,12 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: check branch
-        run: echo $GITHUB_HEAD_REF
+        run: |
+          echo $GITHUB_HEAD_REF
+          if [ "$GITHUB_HEAD_REF" = "Ke1ten-patch-11" ]; then
+            echo patch-11
+          elif [ "$GITHUB_HEAD_REF" = "Ke1ten-patch-12" ]; then
+            echo patch-12
+          else
+            echo "Ошибка"
+          fi
